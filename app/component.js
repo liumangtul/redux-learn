@@ -12,7 +12,7 @@ import style from './css/component.css'
 
 class Component extends React.Component{
     render(){
-        return <h1 className={style.h1}>Helllo React Babel ES2015 Webpack </h1>
+        return <h1 className={style.h1}>Helllo React Babel ES2015 Webpack !</h1>
     }
 }
 
