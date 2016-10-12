@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/angular/angular.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<script>
+    angular.module('app',[])
+            .controller('ctrl',['$scope',function ($scope) {
+                var rsA=['c','t']
+                var rsB=['a','g']
+                var rsC=['z','k']
+                var newRsA=[];
+                for(var i=0;i<rsA.length;i++){
+                    for(var j=0;j<rsA.length;j++){
+                        if(i==1 && j==0)continue;
+                        newRsA.push(rsA[i]+rsA[j]);
+                    };
+                };
+                var newRsB=[];
+                for(var i=0;i<rsB.length;i++){
+                    for(var j=0;j<rsB.length;j++){
+                        if(i==1 && j==0)continue;
+                        newRsB.push(rsB[i]+rsB[j]);
+                    };
+                };
+                var newRsC=[];
+                for(var i=0;i<rsC.length;i++){
+                    for(var j=0;j<rsC.length;j++){
+                        if(i==1 && j==0)continue;
+                        newRsC.push(rsC[i]+rsC[j]);
+                    };
+                };
+                var newRsD=['pp','pt','tt']
+                console.log(newRsA,newRsB,newRsC,newRsD);
+                console.log('')
+                //列
+                var cols=[newRsA,newRsB,newRsC];
+
+                var arr=[];
+                var count=0;
+                for(var i=0;i<cols.length;i++){
+
+                    count=1;
+                    for(var j=0;j<cols[i].length;j++){
+                        for(var x=0;x<cols[j].length;x++){
+                            if(!cols[i+1])continue;
+                            console.log(i,j,x,count);
+                            if(count+1>=cols.length)continue;
+                            console.log(cols[i][j],cols[count])
+                        };
+                        console.log('')
+                    };
+                    count++;
+                    console.log('')
+                };
+                console.log(arr)
+                $scope.list=arr
+            }])
+</script>
+<div ng-app="app">
+    <div ng-controller="ctrl">
+        <pre class="mark">
+            {{list|json}}
+        </pre>
+        <table class="table-bordered table table-responsive table-striped table-hover">
+            <thead>
+                <tr>
+                    <td>number</td>
+                    <td>rs1</td>
+                    <td>rs2</td>
+                    <td>rs3</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    ng-repeat="rs in list"
+                >
+                    <td>{{$index+1}}</td>
+                   <td
+                    ng-repeat="td in rs"
+                   >
+                       {{td}}
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    /*var rs1=['c','t'];
+    var rs2=['a','g'];
+
+    //-->
+    rs1=['cc','ct','tt'];
+    rs2=['aa','ag','gg'];
+
+    //-->
+    var json={
+        cc:['aa','ag','gg'],
+        ct:['aa','ag','gg'],
+        tt:['aa','ag','gg']
+    }
+    rs1             rs2
+    cc      =>      aa
+    cc      =>      ag
+    cc      =>      gg
+
+    ct      =>      aa
+    ct      =>      ag
+    ct      =>      gg
+
+    tt      =>      aa
+    tt      =>      ag
+    tt      =>      gg*/
+</script>

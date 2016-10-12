@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    a1=["a1","a2","a3"]
+    b1=["b1","b2","b3"]
+    c1=["c1","c2","c3"]
+    d1=["d1","d2","d3"]
+
+    A=[a1,b1,c1,d1]
+    for(i=0;i<Math.pow(3,A.length);i++){
+        for(ii=0;ii<A.length;ii++){
+            shuchu1(i,ii,A)
+            if(ii+1<A.length) document.write(",")
+        }
+        document.write("<br>")
+    }
+
+
+    function shuchu1(i,ii,A){
+        document.write(A[ii][(parseInt(i/Math.pow(3,ii)))%3])
+    }
+
+</script>
+</body>
+</html>

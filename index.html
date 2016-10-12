@@ -9,7 +9,7 @@
 <body>
 <!--Array("rs3","aa","at","tt")-->
 <script>
-    var rsA=['c','t']
+    /*var rsA=['c','t']
     var rsB=['a','g']
     var rsC=['z','k']
     var newRsA=[];
@@ -66,7 +66,7 @@
         };
 
     };
-
+*/
 
 </script>
 <script>
@@ -96,8 +96,9 @@
                         newRsC.push(rsC[i]+rsC[j]);
                     };
                 };
-                console.log(newRsA,newRsB,newRsC);
-
+                var newRsD=['pp','pt','tt']
+                console.log(newRsA,newRsB,newRsC,newRsD);
+                console.log('')
                 //列
                 var cols=[newRsA,newRsB,newRsC];
                 //行
@@ -115,6 +116,31 @@
                     };
                     rows.push(row);
                 };
+                /*var json={};
+                for(var i=0;i<cols.length;i++){
+                    var I=i+1<cols.length?i+1:false;
+                    if(I || I===0){
+                        for(var j=0;j<cols[i].length;j++){
+                            //console.log(i,j,I,cols[I])
+                            for(var x=0;x<cols[I].length;x++){
+                                //console.log(cols[i][j],cols[I][x])
+                                console.log(cols[i][j],cols[I][x])
+                                var a=0;
+                                var b=0
+                                if(!json[cols[i][j]]){
+                                    json[cols[i][j]]={}
+                                    a++
+                                }
+                                if(!json[cols[i][j]][cols[I][x]]){
+                                    json[cols[i][j]][cols[I][x]]={}//cols[I][x]
+                                    b++
+                                }
+                            };
+                        };
+                        console.log('')
+                    };
+                };*/
+                //console.log(json)
                 console.log(rows);
                 var rows2=[];
                 var a={};
@@ -139,6 +165,7 @@
                 $scope.list=newArr
             }])
 </script>
+
 <div ng-app="app">
     <div ng-controller="ctrl">
         <table class="table-bordered table table-responsive table-striped table-hover">
