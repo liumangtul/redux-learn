@@ -8,30 +8,32 @@
 </head>
 <body>
 <script>
-    a1=["cc","ct","tt"]
-    b1=["aa","ag","gg"]
-    c1=["zz","zk","kk"]
-    d1=["ff","fj","jj"]
-
-    A=[a1,b1,c1]
-    var arr=[];
-    var Arr=[];
-    for(i=0;i<Math.pow(3,A.length);i++){
-        arr=[];
-        for(ii=0;ii<A.length;ii++){
-            arr.push(shuchu1(i,ii,A))
-            //if(ii+1<A.length) document.write(",")
-        }
-        console.log(arr)
-        Arr.push(arr)
-    }
-    console.log(Arr)
-
-    function shuchu1(i,ii,A){
-        return A[ii][(parseInt(i/Math.pow(3,ii)))%3];
-    }
     angular.module('app',[])
             .controller('ctrl',function ($scope) {
+
+                var a1=["cc","ct","tt"];
+                var b1=["aa","ag","gg"];
+                var c1=["zz","zk","kk"];
+                var d1=["ff","fj","jj"];
+
+                var All=[a1,b1,c1];
+                var Arr=[];
+                var L=Math.pow(All[0].length,All.length);
+                for(var i=0;i<L;i++){
+
+                    var arr=[];
+                    for(var j=0;j<All.length;j++){
+                        arr.push(shuchu1(i,j,All,All[0].length));
+                    }
+                    console.log('')
+                    Arr.push(arr)
+                }
+
+                function shuchu1(i,j,All,len){
+                    console.log('i=',i,';j=',j)
+                    return All[j][  (parseInt(  i/Math.pow(len,j)   )  )%len   ];
+                }
+
                 $scope.list=Arr;
             })
 </script>
