@@ -75,13 +75,20 @@
                 var rsA=['c','t']
                 var rsB=['a','g']
                 var rsC=['z','k']
+
                 var newRsA=[];
+                var jsonA={};
                 for(var i=0;i<rsA.length;i++){
                     for(var j=0;j<rsA.length;j++){
                         if(i==1 && j==0)continue;
                         newRsA.push(rsA[i]+rsA[j]);
+                        if(!jsonA[rsA[i]+rsA[j]]){
+                            jsonA[rsA[i]+rsA[j]]=[];
+                        };
                     };
                 };
+
+
                 var newRsB=[];
                 for(var i=0;i<rsB.length;i++){
                     for(var j=0;j<rsB.length;j++){
@@ -89,6 +96,8 @@
                         newRsB.push(rsB[i]+rsB[j]);
                     };
                 };
+                console.log(jsonA)
+
                 var newRsC=[];
                 for(var i=0;i<rsC.length;i++){
                     for(var j=0;j<rsC.length;j++){
@@ -100,14 +109,26 @@
                 console.log(newRsA,newRsB,newRsC,newRsD);
                 console.log('')
                 //列
-                var cols=[newRsA,newRsB,newRsC];
-                //行
-                var rows=[];
+                var cols=[];
+                var json={};
+                cols=cols.concat(newRsA,newRsB,newRsC);
+                console.log(cols);
+                var len=Math.pow(3,cols.length);
                 for(var i=0;i<cols.length;i++){
+                    var j=0;
+                    while(j<len){
+                        if(j%3==0){
+                            json[j]
+                        }
+                        j++;
+                    }
+                };
+                /*for(var i=0;i<cols.length;i++){
                     var row=[];
                     for(var j=0;j<cols[i].length;j++){
                         var x=0;
-                        while(x<cols.length){
+                        while(x<cols[i].length){
+                            console.log(i)
                             for(var z=0;z<cols[i].length;z++){
                                 row.push(cols[i][z]);
                             };
@@ -115,6 +136,8 @@
                         };
                     };
                     rows.push(row);
+                    //rows.sort()
+                    console.log(row)
                 };
                 /*var json={};
                 for(var i=0;i<cols.length;i++){
@@ -160,9 +183,10 @@
                 var newArr=[];
                 for(var name in a){
                     newArr.push(a[name])
-                };
+                };*/
 
-                $scope.list=newArr
+                $scope.list=arr;
+                console.log($scope.list)
             }])
 </script>
 
